@@ -3,6 +3,7 @@ const User = require('../models/User');
 
 // Get all blogs with optional filters
 exports.getAllBlogs = async (req, res) => {
+   console.log('Authorization Header:', req.headers.authorization);
   try {
     const { category, author } = req.query;
     let filter = {};
