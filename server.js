@@ -8,12 +8,12 @@ connectDB();
 
 const app = express();
 
-// ✅ Allow frontend origin for CORS
-const allowedOrigins = ['http://localhost:5173', 'https://merblog.netlify.app'];
+// ✅ Explicitly allow Netlify domain
+const allowedOrigins = ['https://merblog.netlify.app', 'http://localhost:5173'];
 
 app.use(cors({
   origin: allowedOrigins,
-  credentials: true, // Optional: if you're using cookies/auth headers
+  credentials: true,
 }));
 
 app.use(express.json());
