@@ -7,7 +7,15 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors());
+
+// ✅ Allow frontend origin for CORS
+const allowedOrigins = ['http://localhost:5173', 'https://merblog.netlify.app'];
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true, // Optional: if you're using cookies/auth headers
+}));
+
 app.use(express.json());
 
 app.use('/auth', require('./routes/auth'));
